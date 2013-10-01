@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link href="css/index.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="menu" class="menu" role="naviagtion">
+      <button name="intro">Intro</button>
+      <button name="users">Users</button>
+      <button name="add">Add user</button>
+    <div>
+
+    <div id="mainview" class="mainview">
+      <div id="introview" class="view" style="display:none;">
+        <h1>INTRO VIEW</h1>
+        <button>Intro View</button>
+      </div>
+      <div id="usersview" class="view" style="display:none;">
+        <h1>Users</h1>
+        <ul>
+        </ul>
+      </div>  
+      <div id="editview" class="view" style="display:none;">
+        <h1>Edit Users</h1>
+        <form id="editform" data-validate="parsley">
+          <label for="name">Name</label>
+          <input type="text" id="fullname" name="name" placeholder='Name' data-required="true" />
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder='Email' data-trigger="change" data-required="true" data-type="email" />
+       </form>
+        <button>Oppdater</button>
+      </div>  
+      <div id="addview" class="view" style="display:none;">
+        <h1>Add Users</h1>
+        <form id="addform" data-validate="parsley">
+          <label for="name">Name</label>
+          <input type="text" id="fullname" name="name" placeholder='Name' data-required="true" />
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" placeholder='Email' data-trigger="change" data-required="true" data-type="email" />
+       </form>
+        <button>Add User</button>
+      </div>
+      <div id="deleteview" class="view" style="display:none;">
+        <h1>Delete User</h1>
+        <div name="name"></div>
+        <div name="email"></div>
+        <button>Delete User</button>
+      </div>
+      <div id="debugview" class="debugview" style="display:none;">
+        <button name="intro">intro</button>
+        <button name="users">users</button>
+      </div>
+    </div>
+
+    <!-- Templates -->
+
+    <script type="text/template" id="user-template">
+      <h3><%- name %> - <%- email %></h3>
+      <button name="edit" data-id="<%- id %>">edit</button>
+      <button name="delete" data-id="<%- id %>">delete</button>
+    </script>
+
+    <!-- / Templates -->
+  
+    <script src="js/libs.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      (function() {
+        var config = {};
+        require("dom.ready")(function() {
+          var Application = require("Application");
+          window.app = new Application(config);
+        });
+      })();
+    </script>
+
+  </body>
+</html>

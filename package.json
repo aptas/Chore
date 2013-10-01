@@ -1,0 +1,72 @@
+{
+  "name": "chore",
+  "description": "A chore notefication application",
+  "version": "0.1.0",
+  "dependencies": {
+    "simple-browser-require": "*",
+    "dom.ready": "git://github.com/popeindustries/dom.ready.git#0.0.1",
+    "env.platform": "git://github.com/popeindustries/env.platform.git#0.0.1",
+    "firebase": "~0.6.3"
+  },
+  "devDependencies": {
+    "buddy": ">= 0.13.1",
+    "buddy-dependencies": ">= 0.2.0",
+    "coffee-script": "~1.6.2",
+    "mocha": "~1.9.0",
+    "chai": "~1.5.0",
+    "express": "~3.4.0",
+    "weinre": "~2.0.0-pre-HH0SN197"
+  },
+  "scripts": {},
+  "buddy": {
+    "settings": {
+      "test": "npm test",
+      "server": {
+        "directory": "www",
+        "port": 8080
+      }
+    },
+    "dependencies": {
+      "lib/vendor": {
+        "sources": [
+          "popeindustries/browser-require",
+          "jashkenas/underscore",
+          "jashkenas/backbone",
+          "lib/js/firebase.js",
+          "lib/js/backbone-firebase.js",
+          "jquery@2.0.3",
+          "lib/js/parsley.js",
+          "lib/js/parsley-messages.no.js",
+          "greensock/GreenSock-JS"
+        ],
+        "output": "www/js/libs.js"
+      }
+    },
+    "build": {
+      "css": {
+        "sources": [
+          "lib/stylus",
+          "src/stylus"
+        ],
+        "targets": [
+          {
+            "input": "src/stylus/index.styl",
+            "output": "www/css/index.css"
+          }
+        ]
+      },
+      "js": {
+        "sources": [
+          "src/coffee",
+          "lib/vendor"
+        ],
+        "targets": [
+          {
+            "input": "src/coffee/Application.coffee",
+            "output": "www/js/main.js"
+          }
+        ]
+      }
+    }
+  }
+}

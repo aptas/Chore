@@ -1,0 +1,15 @@
+.parsley-validated {
+  background-color: #008000;
+}
+.parsley-success {
+  background-color: #008000;
+}
+.parsley-error {
+  background-color: #f00;
+}
+ul.parsley-error-list {
+  color: #f00;
+}
+li.parsley-error {
+  color: #f00;
+}

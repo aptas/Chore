@@ -1,0 +1,8 @@
+
+.buddy-filelog
+node_modules/
+lib/vendor/
+ssl/
+www/js/libs.js
+
+www/js/main.js
