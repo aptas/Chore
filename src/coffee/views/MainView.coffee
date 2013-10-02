@@ -3,7 +3,9 @@ DisplayManager = require('utils/DisplayManager')
 
 View =  require('views/View')
 MenuView =  require('views/MenuView')
-IntroView = require('views/IntroView')
+RoomsView = require('views/RoomsView')
+NewRoomView = require('views/NewRoomView')
+HomeView = require('views/HomeView')
 UsersView = require('views/UsersView')
 AddView = require('views/AddView')
 EditView = require('views/EditView')
@@ -33,8 +35,12 @@ module.exports = class MainView extends Backbone.View
 
   viewFactory: (id, model = @model) ->
     switch id
-      when 'state.intro'
-        @introView = view = new IntroView(@model)
+      when 'state.room'
+        @introView = view = new RoomsView(@model)
+      when 'state.newroom'
+        @newRoomView = view = new NewRoomView(@model)
+      when 'state.home'
+        @homeView = view = new HomeView(@model)
       when 'state.users'
         @usersView = view = new UsersView(@model.get('users'))
       when 'state.add'

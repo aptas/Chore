@@ -1,11 +1,11 @@
 Backbone = require('backbone')
 View = require('views/View')
 
-module.exports = class IntroView extends View
+module.exports = class NewRoomView extends View
 
     constructor: (model) ->
         super({
-            el: '#introview'
+            el: '#newroomview'
             model: model
         })
 

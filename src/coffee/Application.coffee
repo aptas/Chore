@@ -12,7 +12,7 @@ module.exports = class Application
     window.log = () => 
       if @debug then console.log(arguments)
 
-    @model = new Model(@config.model)
+    @model = new Model(@config.model, @config.options)
     @controller = new Controller(@model)
     @mainView = new MainView(@model, @controller)
 

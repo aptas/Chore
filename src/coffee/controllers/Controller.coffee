@@ -5,7 +5,9 @@ module.exports = class Controller
 
   constructor: (@model) ->
 
-    Backbone.on('show:intro', @showIntro)
+    Backbone.on('show:rooms', @showRooms)
+    Backbone.on('show:newroom', @showNewRoom)
+    Backbone.on('show:home', @showHome)
     Backbone.on('show:users', @showUsers)
     Backbone.on('show:add', @showAdd)
     Backbone.on('show:edit', @showEdit)
@@ -15,11 +17,19 @@ module.exports = class Controller
     Backbone.on('do:delete', @deleteUser)
 
   init: () =>
-    @showUsers()
+    @showRooms()
 
-  showIntro: () =>
-    log("Controller.showIntro")
-    @model.set('state', 'state.intro')
+  showRooms: () =>
+    log("Controller.showRooms")
+    @model.set('state', 'state.room')
+
+  showNewRoom: () =>
+    log("Controller.showNewRoom")
+    @model.set('state', 'state.newroom')
+
+  showHome: () =>
+    log("Controller.showHome")
+    @model.set('state', 'state.home')
 
   showUsers: () =>
     log("Controller.showUsers")

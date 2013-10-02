@@ -10,27 +10,60 @@
     <div>
 
     <div id="mainview" class="mainview">
-      <div id="introview" class="view" style="display:none;">
-        <h1>INTRO VIEW</h1>
-        <button>Intro View</button>
+
+      <div id="roomsview" class="view" style="display:none;">
+        <h1>Select Room</h1>
+        <form id="selectform">
+          <select name="carlist" form="carform">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+        </form>
+        <button>Select</button>
+        <button>Admin</button>
       </div>
-      <div id="usersview" class="view" style="display:none;">
-        <h1>Users</h1>
+
+      <div id="newroomview" class="view" style="display:none;">
+        <h1>Create a new room</h1>
+        <form id="newroomform">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder='Name' data-required="true" />
+          <label for="lat">Lat</label>
+          <input type="text" id="lat" name="lat" placeholder='Lat' data-required="true" />
+          <label for="long">Long</label>
+          <input type="text" id="long" name="long" placeholder='Long' data-required="true" />
+        </form>
+        <button>Select</button>
+        <button>Admin</button>
+      </div>
+
+      <div id="homeview" class="view" style="display:none;">
+        <h1>Kjøkkenhjulet!</h1>
         <ul>
         </ul>
-      </div>  
-      <div id="editview" class="view" style="display:none;">
+      </div>
+
+      <div id="usersview" class="view" style="display:none;">
         <h1>Edit Users</h1>
+        <ul>
+        </ul>
+      </div>
+
+      <div id="editview" class="view" style="display:none;">
+        <h1>Edit Current User</h1>
         <form id="editform" data-validate="parsley">
           <label for="name">Name</label>
-          <input type="text" id="fullname" name="name" placeholder='Name' data-required="true" />
+          <input type="text" id="name" name="name" placeholder='Name' data-required="true" />
           <label for="email">Email</label>
           <input type="text" id="email" name="email" placeholder='Email' data-trigger="change" data-required="true" data-type="email" />
        </form>
         <button>Oppdater</button>
-      </div>  
+      </div>
+
       <div id="addview" class="view" style="display:none;">
-        <h1>Add Users</h1>
+        <h1>Add User</h1>
         <form id="addform" data-validate="parsley">
           <label for="name">Name</label>
           <input type="text" id="fullname" name="name" placeholder='Name' data-required="true" />
@@ -39,17 +72,24 @@
        </form>
         <button>Add User</button>
       </div>
+
       <div id="deleteview" class="view" style="display:none;">
         <h1>Delete User</h1>
         <div name="name"></div>
         <div name="email"></div>
         <button>Delete User</button>
       </div>
+
       <div id="debugview" class="debugview" style="display:none;">
-        <button name="intro">intro</button>
+        <button name="rooms">rooms</button>
+        <button name="newroom">newroom</button>
+        <button name="home">home</button>
         <button name="users">users</button>
+        <button name="edit">edit</button>
+        <button name="delete">delete</button>
       </div>
     </div>
+
 
     <!-- Templates -->
 
@@ -66,6 +106,10 @@
     <script>
       (function() {
         var config = {};
+        config.model = {}
+        config.options = {
+          firebase: "https://chore.firebaseio.com/apt"
+        };
         require("dom.ready")(function() {
           var Application = require("Application");
           window.app = new Application(config);

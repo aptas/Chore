@@ -3,7 +3,8 @@ UserModel = require('./UserModel')
 
 module.exports = class UserCollection extends Backbone.Firebase.Collection
 	
-	constructor: (params = [], options = {}) ->
+	constructor: (attrs = [], options = {}) ->
 		options.model = UserModel
-		@firebase = "http://chore.firebaseio.com/users"
-		super(params, options)
+		@firebase = options.firebase + "/users"
+		log(@firebase)
+		super(attrs, options)

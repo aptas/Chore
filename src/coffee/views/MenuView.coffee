@@ -11,7 +11,7 @@ module.exports = class MenuView extends Backbone.View
 
     @$intro = @$el.find('[name=intro]')
     @$intro.on('click', => 
-      Backbone.trigger('show:intro')
+      Backbone.trigger('show:rooms')
     )
 
     @$users = @$el.find('[name=users]')
