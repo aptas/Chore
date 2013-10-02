@@ -1,3 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.debugview {
+  padding: 10px;
+  height: 20px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background-color: #808080;
+}
 .parsley-validated {
   background-color: #008000;
 }

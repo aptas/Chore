@@ -1,14 +1,8 @@
 
 var express = require('express')
   , http = require('http')
-  , https = require('https')
   , fs = require('fs')
   , path = require('path');
-
-var options = {
-    key: fs.readFileSync('./ssl/server.key'),
-    cert: fs.readFileSync('./ssl/server.crt'),
-};
 
 var app = express();
 var port = process.env.PORT || 3000;
